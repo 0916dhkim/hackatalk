@@ -166,12 +166,13 @@ const MessageScreen: FC<Props> = (props) => {
   ]);
 
   const onSubmit = (): void => {
+    // Clear text box.
+    setTextToSend('');
     const mutationConfig = {
       variables: {
         channelId: channel.id,
         message: {
-          // TODO: Use actual message as a variable.
-          text: 'Hi this is Hyo111',
+          text: textToSend,
         },
       },
       updater: (proxyStore: RecordSourceSelectorProxy) => {
