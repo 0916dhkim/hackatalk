@@ -13,7 +13,7 @@ import type {
 import { MessageProps, MessageType } from '../../types';
 import React, { FC, ReactElement, useState } from 'react';
 import { RouteProp, useNavigation } from '@react-navigation/core';
-import { graphql, useMutation } from 'react-relay/hooks';
+import { graphql, graphql, useMutation } from 'react-relay/hooks';
 import {
   launchCameraAsync,
   launchImageLibraryAsync,
@@ -37,6 +37,10 @@ const Container = styled.SafeAreaView`
   background-color: ${({ theme }): string => theme.messageBackground};
   flex-direction: column;
   align-items: center;
+`;
+
+const channelQuery = graphql`
+  query MessageChannelQuery($)
 `;
 
 interface Props {
